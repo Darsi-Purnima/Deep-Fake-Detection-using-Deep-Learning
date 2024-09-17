@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<style>
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        background: none;
+    }
+    
+    .navbar-brand, .navbar-nav {
+        display: flex;
+    }
+    
+    .navbar-logo {
+        position: absolute;
+        left: 56%;
+        transform: translateX(-50%);
+        margin-top: 15px; /* Adjust as needed */
+    }
+    
+    .nav-link {
+        margin-left: 10px; /* Adjust as needed */
+    }
+    </style>
+
+    <nav class="navbar">
+        <a class="navbar-brand" href="{% url 'ml_app:home' %}">
+            <img src="{% static 'images/teclogo.png' %}" alt="teclogo" style="height:100px;"> <!-- Adjust height as needed -->
+        </a>
+        <img class="navbar-logo" src="{% static 'images/DDlogo.png' %}" alt="DDlogo" style="height:120px">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'ml_app:home' %}">
+                <img src="{% static 'images/home.png' %}" alt="Home" style="height:100px;"> <!-- Adjust height as needed -->
+            </a>
+        </div>
+    </nav>
